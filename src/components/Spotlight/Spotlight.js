@@ -36,7 +36,6 @@ class Spotlight extends Component {
         <article key={this.state.spotLight?.url}>
           <h2>{this.state.spotLight?.name}</h2>
           <p>{this.state.spotLight?.desc}</p>
-          <p>{this.state.spotLight?.overview}</p>
           <Link to={'/'}>🔙</Link>
         </article>
       </div>
