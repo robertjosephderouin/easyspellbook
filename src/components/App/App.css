@@ -1,0 +1,4 @@
+body{
+    background: linear-gradient(135deg,  rgba(213,206,166,1) 38%,rgba(183,173,112,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    min-height: 100vh;
+}
