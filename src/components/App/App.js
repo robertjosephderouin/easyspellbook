@@ -39,8 +39,8 @@ class App extends Component {
         }} />
 
         <Route exact path="/:url" render={({match}) => {
-          const { index } = match.params;
-          return <Spotlight index={index} />
+          const { url } = match.params;
+          return <Spotlight index={url} />
         }} />
         </Switch>
       </main>
