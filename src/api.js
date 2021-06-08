@@ -5,6 +5,6 @@ export const getSpells = () => {
   }
 
   export const getSpotlight = (url) => {
-    return fetch(`https://www.dnd5eapi.co/api/spells/${url}`)
+    return fetch(`https://www.dnd5eapi.co${url}`)
       .then(response => response.json())
   }
