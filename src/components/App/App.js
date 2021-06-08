@@ -37,6 +37,11 @@ class App extends Component {
             </section>
           )
         }} />
+
+        <Route exact path="/:url" render={({match}) => {
+          const { url } = match.params;
+          return <Spotlight url={url} />
+        }} />
         </Switch>
       </main>
     )
