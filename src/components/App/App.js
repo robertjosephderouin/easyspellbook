@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Spells from '../Spells/Spells';
+import Spotlight from '../Spotlight/Spotlight';
 import './App.css';
+import { getSpells, getSpotlight } from '../../api-calls';
+import Spellbook from '../SpellBook/Spellbook';
+import { Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      spells: [],
+      error: ''
+    }
+  }
+
+  componentDidMount = () => {
+    getMovies()
+      .then(data => {
+        this.setState({ spells: data.results })
+      })
+      .catch(() => this.setState({ error: 'Something went wrong'}))
+  }
+
+  render() {
+    return (
+      <main>
+        {!this.state.spells.length && !this.state.error && <h2>Loading spells...</h2>}
+        {this.state.error && <h3>{this.state.error}</h3>}
+        <Switch>
+        <Route exact path="/" render={() => {
+          return (
+            <section>
+              <Spellbook />
+              <Spells spells={this.state.spells} />
+            </section>
+          )
+        }} />
+        </Switch>
+      </main>
+    )
+  }
 }
 
 export default App;
