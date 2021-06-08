@@ -4,10 +4,10 @@ import { getSpotlight } from '../../api';
 import { Link, Redirect } from 'react-router-dom';
 
 class Spotlight extends Component {
-  constructor({url}) {
+  constructor({index}) {
     super();
     this.state = {
-      url: url,
+      index: index,
       spotLight: null,
       error: '',
       isLoaded: false,
@@ -15,7 +15,7 @@ class Spotlight extends Component {
   }
 
   componentDidMount = () => {
-    getSpotlight(this.state.url)
+    getSpotlight(this.state.index)
       .then(data => {
         this.setState({ spotLight: data })
       })

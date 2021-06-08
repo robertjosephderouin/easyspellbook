@@ -4,7 +4,7 @@ export const getSpells = () => {
       .then(response => response.json())
   }
 
-  export const getSpotlight = (url) => {
-    return fetch(`https://www.dnd5eapi.co${url}`)
+  export const getSpotlight = (index) => {
+    return fetch(`https://www.dnd5eapi.co/api/spells/${index}`)
       .then(response => response.json())
   }

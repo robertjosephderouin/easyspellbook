@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spells from '../Spells/Spells';
 import Spotlight from '../Spotlight/Spotlight';
 import './App.css';
-import { getSpells, getSpotlight } from '../../api';
+import { getSpells } from '../../api';
 import Spellbook from '../Spellbook/Spellbook';
 import { Route, Switch } from 'react-router-dom';
 
@@ -39,8 +39,8 @@ class App extends Component {
         }} />
 
         <Route exact path="/:url" render={({match}) => {
-          const { url } = match.params;
-          return <Spotlight url={url} />
+          const { index } = match.params;
+          return <Spotlight index={index} />
         }} />
         </Switch>
       </main>

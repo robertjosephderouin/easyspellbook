@@ -7,11 +7,9 @@ const Spells = ({spells}) => {
 
   const spellCards = spells.map(spell => {
     return (
-      <Link to={`/${spell.url}`} key={spell.url}>
+      <Link to={`${spell.index}`} key={spell.url}>
         <Card
           name={spell.name}
-          index={spell.index}
-          url={spell.url}
         />
       </Link>
     )
