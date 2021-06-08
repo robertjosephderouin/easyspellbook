@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Spells from '../Spells/Spells';
 import Spotlight from '../Spotlight/Spotlight';
 import './App.css';
-import { getSpells, getSpotlight } from '../../api-calls';
-import Spellbook from '../SpellBook/Spellbook';
+import { getSpells, getSpotlight } from '../../api';
+import Spellbook from '../Spellbook/Spellbook';
 import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    getMovies()
+    getSpells()
       .then(data => {
         this.setState({ spells: data.results })
       })

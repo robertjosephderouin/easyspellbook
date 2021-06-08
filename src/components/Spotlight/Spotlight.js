@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Spotlight.css';
-import { getSpotlight } from '../../api-calls';
+import { getSpotlight } from '../../api';
 import { Link, Redirect } from 'react-router-dom';
 
 class Spotlight extends Component {

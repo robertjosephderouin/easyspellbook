@@ -11,7 +11,7 @@ const Spells = ({spells}) => {
         <Card
           name={spell.name}
           index={spell.index}
-          url={spell.url)}
+          url={spell.url}
         />
       </Link>
     )
