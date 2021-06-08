@@ -1,11 +1,4 @@
 .card {
-  display: flex;
-  justify-content: center;
-  border: 2px solid black;
-  margin: 5px;
-}
-
-.card:hover {
-  transform: translateY(-.5%);
-  box-shadow: 0 2rem 4rem rgba(0, 0, 0, .2);
+  margin: 10px;
+  border: 5px solid black;
 }
