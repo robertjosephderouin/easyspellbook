@@ -24,6 +24,16 @@ class App extends Component {
       .catch(() => this.setState({ error: 'Something went wrong'}))
   }
 
+  memorizeSpell = (name) => {
+    const spell = this.state.spells.find(spell => spell.name === name);
+    this.setState({ memorizedSpells: [...this.state.memorizedSpells, spell]})
+  }
+
+  unmemorizeSpell = (name) => {
+    const spell = this.state.spells.find(spell => spell.name === name);
+    this.setState({ memorizedSpells: this.state.memorizedSpells.filter(spell => spell.name != name)})
+  }
+
   render() {
     return (
       <main>
@@ -34,7 +44,7 @@ class App extends Component {
           return (
             <section>
               <Spellbook />
-              <Spells spells={this.state.spells} />
+              <Spells memorizeSpell={this.memorizeSpell} spells={this.state.spells} />
             </section>
           )
         }} />
@@ -42,7 +52,7 @@ class App extends Component {
           return (
             <section>
               <Spellbook />
-              <Spells spells={this.state.memorizedSpells} />
+              <Spells memorizeSpell={this.memorizeSpell} spells={this.state.memorizedSpells} />
             </section>
           )
         }} />
