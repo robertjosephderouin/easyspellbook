@@ -10,7 +10,7 @@ const Spells = ({spells, findSpell, memorizeSpell, unmemorizeSpell, countSpell})
       <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to={`${spell.index}`} key={spell.url}>
         <article className="card">
             <Card name={spell.name}/>
-            <p>{countSpell(spell.name)}</p>
+            <p className="count">Memorized : {countSpell(spell.name)}</p>
             <button onClick={(e) => {e.preventDefault(); memorizeSpell(spell.name)}}>Memorize Spell</button>
             <button onClick={(e) => {e.preventDefault(); unmemorizeSpell(spell.name)}}>Unmemorize Spell</button>
         </article>
