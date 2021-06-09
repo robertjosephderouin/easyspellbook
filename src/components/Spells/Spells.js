@@ -3,15 +3,19 @@ import Card from '../Card/Card';
 import './Spells.css';
 import { Link } from 'react-router-dom';
 
-const Spells = ({spells}) => {
+const Spells = ({spells, memorizeSpell, unmemorizeSpell, findSpell}) => {
 
   const spellCards = spells.map(spell => {
     return (
-      <Link style={{ color: 'inherit', textDecoration: 'inherit'}} className="card" to={`${spell.index}`} key={spell.url}>
-        <Card
-          name={spell.name}
-        />
-      </Link>
+      <article className="card">
+        <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to={`${spell.index}`} key={spell.url}>
+          <Card
+            name={spell.name}
+          />
+        </Link>
+        { findSpell(spell.name) && <button onClick={() => unmemorizeSpell(spell.name)}>Unmemorize Spell</button> }
+        { !findSpell(spell.name) && <button onClick={() => memorizeSpell(spell.name)}>Memorize Spell</button> }
+      </article>
     )
   })
 
