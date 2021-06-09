@@ -10,6 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      memorizedSpells: [],
       spells: [],
       error: ''
     }
@@ -37,7 +38,14 @@ class App extends Component {
             </section>
           )
         }} />
-
+        <Route exact path="/memorizedSpells" render={() => {
+          return (
+            <section>
+              <Spellbook />
+              <Spells spells={this.state.memorizedSpells} />
+            </section>
+          )
+        }} />
         <Route exact path="/:url" render={({match}) => {
           const { url } = match.params;
           return <Spotlight index={url} />
