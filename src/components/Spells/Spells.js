@@ -12,7 +12,7 @@ const Spells = ({spells, findSpell, memorizeSpell, unmemorizeSpell, countSpell})
             <Card name={spell.name}/>
             <p className="count">Memorized : {countSpell(spell.name)}</p>
             <button onClick={(e) => {e.preventDefault(); memorizeSpell(spell.name)}}>Memorize Spell</button>
-            <button onClick={(e) => {e.preventDefault(); unmemorizeSpell(spell.name)}}>Unmemorize Spell</button>
+            <button disabled={!findSpell(spell.name)} onClick={(e) => {e.preventDefault(); unmemorizeSpell(spell.name)}}>Unmemorize Spell</button>
         </article>
        </Link>
     )
