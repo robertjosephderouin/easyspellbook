@@ -25,13 +25,16 @@ class App extends Component {
   }
 
   memorizeSpell = (name) => {
-    const spell = this.state.spells.find(spell => spell.name === name);
+    const spell = this.state.spells.find(spell => spell.name === name)
     this.setState({ memorizedSpells: [...this.state.memorizedSpells, spell]})
   }
 
   unmemorizeSpell = (name) => {
-    const spell = this.state.spells.find(spell => spell.name === name);
-    this.setState({ memorizedSpells: this.state.memorizedSpells.filter(spell => spell.name != name)})
+    this.setState({ memorizedSpells: this.state.memorizedSpells.filter(spell => spell.name !== name)})
+  }
+
+  findSpell = (name) => {
+    this.state.memorizedSpells.includes(spell => spell.name === name);
   }
 
   render() {
@@ -44,7 +47,7 @@ class App extends Component {
           return (
             <section>
               <Spellbook />
-              <Spells memorizeSpell={this.memorizeSpell} spells={this.state.spells} />
+              <Spells memorizeSpell={this.memorizeSpell} findSpell={this.findSpell} unmemorizeSpell={this.unmemorizeSpell} spells={this.state.spells} />
             </section>
           )
         }} />
@@ -52,7 +55,7 @@ class App extends Component {
           return (
             <section>
               <Spellbook />
-              <Spells memorizeSpell={this.memorizeSpell} spells={this.state.memorizedSpells} />
+              <Spells memorizeSpell={this.memorizeSpell} unmemorizeSpell={this.unmemorizeSpell} findSpell={this.findSpell} spells={this.state.memorizedSpells} />
             </section>
           )
         }} />

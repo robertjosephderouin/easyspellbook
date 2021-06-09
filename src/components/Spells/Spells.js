@@ -3,7 +3,7 @@ import Card from '../Card/Card';
 import './Spells.css';
 import { Link } from 'react-router-dom';
 
-const Spells = ({spells, memorizeSpell}) => {
+const Spells = ({spells, memorizeSpell, unmemorizeSpell, findSpell}) => {
 
   const spellCards = spells.map(spell => {
     return (
@@ -13,7 +13,8 @@ const Spells = ({spells, memorizeSpell}) => {
             name={spell.name}
           />
         </Link>
-        <button id={spell.name} onClick={() => memorizeSpell(spell.name)}>Memorize Spell</button>
+        { findSpell(spell.name) && <button id={spell.name} onClick={() => unmemorizeSpell(spell.name)}>Unmemorize Spell</button>}
+        { !findSpell(spell.name) && <button id={spell.name} onClick={() => memorizeSpell(spell.name)}>Memorize Spell</button>}
       </article>
     )
   })
