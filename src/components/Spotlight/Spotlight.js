@@ -43,7 +43,7 @@ class Spotlight extends Component {
           <p>Casting Time: {this.state.spotLight?.casting_time}</p>
           <p>Level: {this.state.spotLight?.level}</p>
           <p>School: {this.state.spotLight?.school.name}</p>
-          <Link to={'/'}>🔙</Link>
+          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} className='back-button' to={'/'}>🔙</Link>
         </article>
       </div>
     );

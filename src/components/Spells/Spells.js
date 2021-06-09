@@ -7,7 +7,7 @@ const Spells = ({spells}) => {
 
   const spellCards = spells.map(spell => {
     return (
-      <Link className="card" to={`${spell.index}`} key={spell.url}>
+      <Link style={{ color: 'inherit', textDecoration: 'inherit'}} className="card" to={`${spell.index}`} key={spell.url}>
         <Card
           name={spell.name}
         />

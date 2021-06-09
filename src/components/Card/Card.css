@@ -1,6 +1,10 @@
 .card {
-  display: flex;
-  justify-content: center;
-  border: 1px solid black;
-  margin: 5px;
+  margin: 10px;
+  border: 5px solid black;
+  border-radius: 0px 10px 0px 0px;
+}
+
+.card:hover {
+  transform: translateY(-.5%);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
