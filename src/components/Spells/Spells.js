@@ -13,8 +13,8 @@ const Spells = ({spells, memorizeSpell, unmemorizeSpell, findSpell}) => {
             name={spell.name}
           />
         </Link>
-        { findSpell(spell.name) && <button id={spell.name} onClick={() => unmemorizeSpell(spell.name)}>Unmemorize Spell</button>}
-        { !findSpell(spell.name) && <button id={spell.name} onClick={() => memorizeSpell(spell.name)}>Memorize Spell</button>}
+        { findSpell(spell.name) && <button onClick={() => unmemorizeSpell(spell.name)}>Unmemorize Spell</button> }
+        { !findSpell(spell.name) && <button onClick={() => memorizeSpell(spell.name)}>Memorize Spell</button> }
       </article>
     )
   })

@@ -34,7 +34,8 @@ class App extends Component {
   }
 
   findSpell = (name) => {
-    this.state.memorizedSpells.includes(spell => spell.name === name);
+    const names = this.state.memorizedSpells.map(spell => spell.name)
+    return names.includes(name)
   }
 
   render() {
