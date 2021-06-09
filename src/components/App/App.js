@@ -24,6 +24,16 @@ class App extends Component {
       .catch(() => this.setState({ error: 'Something went wrong'}))
   }
 
+
+  findSpell = (name) => {
+    const names = this.state.memorizedSpells.map(spell => spell.name)
+    return names.includes(name)
+  }
+
+  toggleSpell = (name) => {
+    this.findSpell(name) ? this.unmemorizeSpell(name) : this.memorizeSpell(name)
+  }
+
   memorizeSpell = (name) => {
     const spell = this.state.spells.find(spell => spell.name === name)
     this.setState({ memorizedSpells: [...this.state.memorizedSpells, spell]})
@@ -33,10 +43,6 @@ class App extends Component {
     this.setState({ memorizedSpells: this.state.memorizedSpells.filter(spell => spell.name !== name)})
   }
 
-  findSpell = (name) => {
-    const names = this.state.memorizedSpells.map(spell => spell.name)
-    return names.includes(name)
-  }
 
   render() {
     return (
@@ -48,7 +54,7 @@ class App extends Component {
           return (
             <section>
               <Spellbook />
-              <Spells memorizeSpell={this.memorizeSpell} findSpell={this.findSpell} unmemorizeSpell={this.unmemorizeSpell} spells={this.state.spells} />
+              <Spells findSpell={this.findSpell} toggleSpell={this.toggleSpell} spells={this.state.spells} />
             </section>
           )
         }} />
@@ -56,7 +62,7 @@ class App extends Component {
           return (
             <section>
               <Spellbook />
-              <Spells memorizeSpell={this.memorizeSpell} unmemorizeSpell={this.unmemorizeSpell} findSpell={this.findSpell} spells={this.state.memorizedSpells} />
+              <Spells findSpell={this.findSpell} toggleSpell={this.toggleSpell} spells={this.state.memorizedSpells} />
             </section>
           )
         }} />
