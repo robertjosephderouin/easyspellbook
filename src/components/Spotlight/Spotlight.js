@@ -33,7 +33,7 @@ class Spotlight extends Component {
       {!this.state.isLoaded && <h2>Loading spell selection...</h2>}
       {!this.state.error && this.state.isLoaded && !this.state.spotLight && <Redirect to='/' />}
       {this.state.error && <h3>{this.state.error}</h3>}
-        <article key={this.state.spotLight?.url}>
+        <article className="details" key={this.state.spotLight?.url}>
           <h2>{this.state.spotLight?.name}</h2>
           <p>{this.state.spotLight?.desc}</p>
           <p>{this.state.spotLight?.higher_level}</p>
