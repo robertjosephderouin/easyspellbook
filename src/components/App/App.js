@@ -30,19 +30,20 @@ class App extends Component {
     return names.includes(name)
   }
 
-  toggleSpell = (name) => {
-    this.findSpell(name) ? this.unmemorizeSpell(name) : this.memorizeSpell(name)
-  }
-
   memorizeSpell = (name) => {
     const spell = this.state.spells.find(spell => spell.name === name)
     this.setState({ memorizedSpells: [...this.state.memorizedSpells, spell]})
   }
 
   unmemorizeSpell = (name) => {
-    this.setState({ memorizedSpells: this.state.memorizedSpells.filter(spell => spell.name !== name)})
+    const spells = [...this.state.memorizedSpells]
+    spells.splice(spells.findIndex(spell => spell.name === name), 1);
+    this.setState({ memorizedSpells: spells})
   }
 
+  countSpell = (name) => {
+    return this.state.memorizedSpells.filter(spell => spell.name === name).length
+  }
 
   render() {
     return (
@@ -54,7 +55,7 @@ class App extends Component {
           return (
             <section>
               <Spellbook />
-              <Spells findSpell={this.findSpell} toggleSpell={this.toggleSpell} spells={this.state.spells} />
+              <Spells findSpell={this.findSpell} memorizeSpell={this.memorizeSpell} unmemorizeSpell={this.unmemorizeSpell} countSpell={this.countSpell} spells={this.state.spells} />
             </section>
           )
         }} />
@@ -62,7 +63,7 @@ class App extends Component {
           return (
             <section>
               <Spellbook />
-              <Spells findSpell={this.findSpell} toggleSpell={this.toggleSpell} spells={this.state.memorizedSpells} />
+              <Spells findSpell={this.findSpell} memorizeSpell={this.memorizeSpell} unmemorizeSpell={this.unmemorizeSpell} countSpell={this.countSpell} spells={this.state.memorizedSpells} />
             </section>
           )
         }} />
