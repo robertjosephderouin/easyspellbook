@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
-import Spells from '../Spells/Spells';
-import Spotlight from '../Spotlight/Spotlight';
 import './App.css';
+
+import React, { Component } from 'react';
+
+import {
+  Route,
+  Switch,
+} from 'react-router-dom';
+
 import { getSpells } from '../../api';
 import Spellbook from '../Spellbook/Spellbook';
-import { Route, Switch } from 'react-router-dom';
+import Spells from '../Spells/Spells';
+import Spotlight from '../Spotlight/Spotlight';
 
 class App extends Component {
   constructor() {
@@ -47,7 +53,7 @@ class App extends Component {
 
   render() {
     return (
-      <main>
+      <main className="container">
         {!this.state.spells.length && !this.state.error && <h2>Loading spells...</h2>}
         {this.state.error && <h3>{this.state.error}</h3>}
         <Switch>

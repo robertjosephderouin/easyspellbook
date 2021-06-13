@@ -1,10 +1,68 @@
 .card {
-  border: 5px solid black;
-  border-radius: 0px 10px 0px 0px;
+  background-image: url("./scroll.png");
+  background-size:cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 50px 53px;
+}
+
+.card-container {
+  padding-top: 83%;
   position: relative;
 }
 
 .card:hover {
   transform: translateY(-.5%);
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
+
+.button {
+  display: inline-block;
+  border-image: url(button.png) 5 round;
+  background-image: url(button-bg.jpg);
+  background-size: cover;
+  border-width: 5px;
+  font-family: 'Press Start 2P', cursive;
+  padding: 1px 6px;
+  border-style: outset;
+  color: black;
+  text-shadow: none;
+}
+
+.card .button {
+  width: 100%;
+}
+
+.count {
+  position: absolute;
+  bottom: 20px;
+  right: 48px;
+}
+
+.card-container {
+  margin: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+
+}
+
+.spellsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card h2 {
+  font-size: 1em;
+  letter-spacing: 2px;
+  line-height: 140%;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -39,5 +39,8 @@
   },
   "devDependencies": {
     "cypress": "^7.5.0"
+  },
+  "resolutions": {
+    "css-loader": "5.1.3"
   }
 }
