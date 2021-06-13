@@ -1,7 +1,13 @@
-import React, {Component} from 'react';
 import './Spotlight.css';
+
+import React, { Component } from 'react';
+
+import {
+  Link,
+  Redirect,
+} from 'react-router-dom';
+
 import { getSpotlight } from '../../api';
-import { Link, Redirect } from 'react-router-dom';
 
 class Spotlight extends Component {
   constructor({index}) {
@@ -43,7 +49,7 @@ class Spotlight extends Component {
           <p>Casting Time: {this.state.spotLight?.casting_time}</p>
           <p>Level: {this.state.spotLight?.level}</p>
           <p>School: {this.state.spotLight?.school.name}</p>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} className='back-button' to={'/'}>🔙</Link>
+          <Link className="button" style={{ textDecoration: 'none'}} to={'/'}>Back</Link>
         </article>
       </div>
     );
