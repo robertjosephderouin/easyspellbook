@@ -7,6 +7,8 @@ import {
   Redirect,
 } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+
 import { getSpotlight } from '../../api';
 
 class Spotlight extends Component {
@@ -56,5 +58,8 @@ class Spotlight extends Component {
   }
 }
 
+Spotlight.propTypes = {
+  index: PropTypes.string
+}
 
 export default Spotlight;
