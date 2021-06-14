@@ -1,6 +1,7 @@
 .card {
   background-image: url("./scroll.png");
   background-size:cover;
+  image-rendering: pixelated;
   position: absolute;
   top: 0;
   left: 0;
