@@ -48,4 +48,6 @@ Welcome to Easy Spell Book, an open source project created by Robert DeRouin to 
 
 * Project Repo : https://github.com/robertjosephderouin/easyspellbook
 
+* API : http://www.dnd5eapi.co/
+
 * Deployed Page : www.easyspellbook.com
