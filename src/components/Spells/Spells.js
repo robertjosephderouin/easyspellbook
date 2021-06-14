@@ -4,13 +4,22 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+
 import Card from '../Card/Card';
 
 const Spells = ({spells, findSpell, memorizeSpell, unmemorizeSpell, countSpell}) => {
 
-  const spellCards = spells.map(spell => {
+  const knownIDs = [];
+  const spellCards = spells.filter(spell => {
+    if(!knownIDs.includes(spell.name)){
+      knownIDs.push(spell.name);
+      return true;
+    } 
+    return false;
+  }).map(spell => {
     return (
-      <Link className="card-container" style={{ color: 'inherit', textDecoration: 'inherit'}} to={`${spell.index}`} key={spell.url}>
+      <Link className="card-container" style={{ color: 'inherit', textDecoration: 'inherit'}} to={`${spell.index}`} key={spell.index}>
         <article className="card">
             <Card name={spell.name}/>
             <p className="count">[{countSpell(spell.name)}]</p>
@@ -28,5 +37,12 @@ const Spells = ({spells, findSpell, memorizeSpell, unmemorizeSpell, countSpell})
   )
 }
 
+Spells.propTypes = {
+  spells: PropTypes.array,
+  findSpell: PropTypes.func,
+  memorizeSpell: PropTypes.func,
+  unmemorizeSpell: PropTypes.func,
+  countSpell: PropTypes.func,
+}
 
 export default Spells;

@@ -90,9 +90,9 @@ describe('Dashboard', () => {
     })
     cy.visit('http://localhost:3000/')
         .get('button').contains('Memorize Spell').click()
-        .get('p').contains('Memorized : 1')
+        .get('p').contains('[1]')
         .get('button').contains('Unmemorize Spell').click()
-        .get('p').contains('Memorized : 0')
+        .get('p').contains('[0]')
     });
   
     it('it should display Loading if no spells have yet been retrieved', () => {
