@@ -15,7 +15,6 @@ A open source project by [Robert DeRouin](https://github.com/robertjosephderouin
 Welcome to Easy Spell Book, an open source project created by Robert DeRouin to make memorizing spells using Vancian spellcasting rules easy! No logging in, no ads, no cost just bop on, memorize some spells and refer back when you need to! 
 
 ## Functionality
-![Functionality](https://media.giphy.com/media/il89lstTn1rOtMS73Z/giphy.gif)
 
 * Current:
   - User can view a list of spells from DND 5th Edition.
