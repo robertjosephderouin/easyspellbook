@@ -12,8 +12,9 @@ const Card = ({ name }) => {
   )
 }
 
-export default Card;
-
 Card.propTypes = {
   name: PropTypes.string
 }
+
+export default Card;
+

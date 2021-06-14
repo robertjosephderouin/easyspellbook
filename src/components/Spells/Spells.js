@@ -4,6 +4,8 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+
 import Card from '../Card/Card';
 
 const Spells = ({spells, findSpell, memorizeSpell, unmemorizeSpell, countSpell}) => {
@@ -28,5 +30,12 @@ const Spells = ({spells, findSpell, memorizeSpell, unmemorizeSpell, countSpell})
   )
 }
 
+Spells.propTypes = {
+  spells: PropTypes.array,
+  findSpell: PropTypes.func,
+  memorizeSpell: PropTypes.func,
+  unmemorizeSpell: PropTypes.func,
+  countSpell: PropTypes.func,
+}
 
 export default Spells;
