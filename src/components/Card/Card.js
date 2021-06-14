@@ -1,8 +1,10 @@
 import './Card.css';
 
+import PropTypes from 'prop-types';
+
 import React from 'react';
 
-const Card = ({ index, name, url, memorizeSpell }) => {
+const Card = ({ name }) => {
   return (
     <article>
       <h2>{name}</h2>
@@ -11,3 +13,7 @@ const Card = ({ index, name, url, memorizeSpell }) => {
 }
 
 export default Card;
+
+Card.propTypes = {
+  name: PropTypes.string
+}
