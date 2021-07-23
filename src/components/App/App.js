@@ -19,6 +19,8 @@ class App extends Component {
     this.state = {
       memorizedSpells: [],
       search: "",
+      classFilter: "",
+      levelFilter: null,
       spells: [],
       error: ''
     }
@@ -66,6 +68,17 @@ class App extends Component {
             return (
               <section>
                 <input onChange={event => { this.setState({ search: event.target.value }) }} className="spell-search" type="text" placeholder="Search..." />
+                <select name="classes" id="classes" onChange={event => { this.setState({ classFilter: event.target.value }) }}>
+                  <option value="">Clear Filter</option>
+                  <option value="Bard">Bard</option>
+                  <option value="Cleric">Cleric</option>
+                  <option value="Druid">Druid</option>
+                  <option value="Paladin">Paladin</option>
+                  <option value="Ranger">Ranger</option>
+                  <option value="Sorceror">Sorceror</option>
+                  <option value="Warlock">Warlock</option>
+                  <option value="Wizard">Wizard</option>
+                </select>
                 <Spellbook />
                 <Spells
                   findSpell={this.findSpell}
@@ -73,7 +86,14 @@ class App extends Component {
                   unmemorizeSpell={this.unmemorizeSpell}
                   countSpell={this.countSpell}
                   spells={this.state.spells.filter(spell => {
-                    return this.state.search === "" || spell.name.toLowerCase().includes(this.state.search.toLowerCase())
+                    let search = this.state.search === "" || spell.name.toLowerCase().includes(this.state.search.toLowerCase())
+                    if (this.state.classFilter) {
+                      search = search && spell.classes.find(a => this.state.classFilter === a.name)
+                    }
+                    if (this.state.levelFilter) {
+                      search = search && this.state.levelFilter === spell.level
+                    }
+                    return search
                   })} />
               </section>
             )

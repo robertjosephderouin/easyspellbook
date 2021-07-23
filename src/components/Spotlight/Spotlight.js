@@ -48,6 +48,7 @@ class Spotlight extends Component {
           <p>Material: {this.state.spotLight?.material}</p>
           <p>Duration: {this.state.spotLight?.duration}</p>
           <p>Casting Time: {this.state.spotLight?.casting_time}</p>
+          <p>Class(es): {this.state.spotLight?.classes.map(cls => cls.name).join(', ')}</p>
           <p>Level: {this.state.spotLight?.level}</p>
           <p>School: {this.state.spotLight?.school.name}</p>
           <Link className="button" style={{ textDecoration: 'none' }} to={'/'}>Back</Link>

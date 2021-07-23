@@ -17,7 +17,7 @@ class APIService {
       .query({
         query: gql`
           query Query {
-            spells {
+            spells(limit: 1000) {
               index
               name
               url
@@ -27,6 +27,7 @@ class APIService {
           }
         `
       })
+    console.log(spellData.data.spells.length)
     return spellData.data.spells;
   }
 
@@ -46,6 +47,7 @@ class APIService {
               casting_time
               level
               school{name}
+              classes{name}
             }
           }
         `
