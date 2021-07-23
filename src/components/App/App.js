@@ -79,6 +79,7 @@ class App extends Component {
                   <option value="Warlock">Warlock</option>
                   <option value="Wizard">Wizard</option>
                 </select>
+                <input placeholder="Level" type="number" min="0" max="9" name="level" id="level" onChange={event => { this.setState({ levelFilter: Number(event.target.value) || null }) }} />
                 <Spellbook />
                 <Spells
                   findSpell={this.findSpell}
