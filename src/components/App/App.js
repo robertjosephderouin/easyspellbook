@@ -65,7 +65,7 @@ class App extends Component {
           <Route exact path="/" render={() => {
             return (
               <section>
-                <input onChange={event => { this.setState({ search: event.target.value }) }} class="spell-search" type="text" placeholder="Search..." />
+                <input onChange={event => { this.setState({ search: event.target.value }) }} className="spell-search" type="text" placeholder="Search..." />
                 <Spellbook />
                 <Spells
                   findSpell={this.findSpell}
@@ -73,12 +73,7 @@ class App extends Component {
                   unmemorizeSpell={this.unmemorizeSpell}
                   countSpell={this.countSpell}
                   spells={this.state.spells.filter(spell => {
-                    if (this.state.search === "") {
-                      return spell
-                    }
-                    else if (spell.name.toLowerCase().includes(this.state.search.toLowerCase())) {
-                      return spell
-                    }
+                    return this.state.search === "" || spell.name.toLowerCase().includes(this.state.search.toLowerCase())
                   })} />
               </section>
             )
