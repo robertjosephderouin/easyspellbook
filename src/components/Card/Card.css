@@ -7,7 +7,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  padding: 50px 53px;
+  padding: 30px 53px;
 }
 
 .card-container {
@@ -60,7 +60,8 @@ nav {
 }
 
 .card h2 {
-  font-size: 1em;
+  font-weight: normal;
+  font-size: .90em;
   letter-spacing: 2px;
   line-height: 140%;
   word-break: break-word;
