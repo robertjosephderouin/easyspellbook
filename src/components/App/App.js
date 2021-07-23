@@ -7,7 +7,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import { getSpells } from '../../api';
+import APIService from '../../api';
 import StorageService from '../../storage-service';
 import Spellbook from '../Spellbook/Spellbook';
 import Spells from '../Spells/Spells';
@@ -26,9 +26,9 @@ class App extends Component {
 
   componentDidMount = () => {
     this.setState({ memorizedSpells: StorageService.load() })
-    getSpells()
+    APIService.getSpells()
       .then(data => {
-        this.setState({ spells: data.results })
+        this.setState({ spells: data })
       })
       .catch(() => this.setState({ error: 'Something went wrong' }))
   }
