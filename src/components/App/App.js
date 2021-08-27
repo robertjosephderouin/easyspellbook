@@ -60,6 +60,7 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <main className="container">
         {!this.state.spells.length && !this.state.error && <h2>Loading spells...</h2>}
         {this.state.error && <h3>{this.state.error}</h3>}
@@ -67,19 +68,6 @@ class App extends Component {
           <Route exact path="/" render={() => {
             return (
               <section>
-                <input onChange={event => { this.setState({ search: event.target.value }) }} className="spell-search" type="text" placeholder="Search..." />
-                <select name="classes" id="classes" onChange={event => { this.setState({ classFilter: event.target.value }) }}>
-                  <option value="">Clear Filter</option>
-                  <option value="Bard">Bard</option>
-                  <option value="Cleric">Cleric</option>
-                  <option value="Druid">Druid</option>
-                  <option value="Paladin">Paladin</option>
-                  <option value="Ranger">Ranger</option>
-                  <option value="Sorceror">Sorceror</option>
-                  <option value="Warlock">Warlock</option>
-                  <option value="Wizard">Wizard</option>
-                </select>
-                <input placeholder="Level" type="number" min="0" max="9" name="level" id="level" onChange={event => { this.setState({ levelFilter: Number(event.target.value) || null }) }} />
                 <Spellbook />
                 <Spells
                   findSpell={this.findSpell}
@@ -91,7 +79,7 @@ class App extends Component {
                     if (this.state.classFilter) {
                       search = search && spell.classes.find(a => this.state.classFilter === a.name)
                     }
-                    if (this.state.levelFilter) {
+                    if (typeof this.state.levelFilter === 'number') {
                       search = search && this.state.levelFilter === spell.level
                     }
                     return search
@@ -113,6 +101,27 @@ class App extends Component {
           }} />
         </Switch>
       </main>
+      <footer className="filters">
+        <div className="subFilters">
+          <input onChange={event => { this.setState({ search: event.target.value }) }} className="spell-search" type="text" placeholder="Search..." />
+          <select name="classes" id="classes" onChange={event => { this.setState({ classFilter: event.target.value }) }}>
+            <option value="">All Classes</option>
+            <option value="Bard">Bard</option>
+            <option value="Cleric">Cleric</option>
+            <option value="Druid">Druid</option>
+            <option value="Paladin">Paladin</option>
+            <option value="Ranger">Ranger</option>
+            <option value="Sorcerer">Sorcerer</option>
+            <option value="Warlock">Warlock</option>
+            <option value="Wizard">Wizard</option>
+          </select>
+          <select name="level" id="level" onChange={event => { this.setState({ levelFilter: Number(event.target.value) || null }) }}>
+            {(Array.from({ length: 10 }).map((el, i) => { console.log(i); return (<option value={i}>{i}</option>)} ))}
+            <option selected value="all">All Levels</option>
+          </select>
+        </div>
+</footer>
+      </>
     )
   }
 }
