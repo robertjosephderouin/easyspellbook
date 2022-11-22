@@ -20,14 +20,12 @@ class APIService {
             spells(limit: 1000) {
               index
               name
-              url
               level
               classes{name}
             }
           }
         `
       })
-    console.log(spellData.data.spells.length)
     return spellData.data.spells;
   }
 

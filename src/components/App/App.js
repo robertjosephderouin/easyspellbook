@@ -116,7 +116,7 @@ class App extends Component {
             <option value="Wizard">Wizard</option>
           </select>
           <select name="level" id="level" onChange={event => { this.setState({ levelFilter: Number(event.target.value) || null }) }}>
-            {(Array.from({ length: 10 }).map((el, i) => { console.log(i); return (<option value={i}>{i}</option>)} ))}
+            {(Array.from({ length: 10 }).map((el, i) => {return (<option value={i}>{i}</option>)} ))}
             <option selected value="all">All Levels</option>
           </select>
         </div>
