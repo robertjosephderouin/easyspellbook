@@ -32,10 +32,10 @@ class APIService {
   async getSpotlight(spell) {
     const spellData = await this.client
       .query({
-        variables: { spell },
+        variables: { spell: spell},
         query: gql`
          query Query($spell: String!) {
-            spells(filter: { index: $spell }) {
+            spells(name:$spell) {
               name
               desc
               higher_level

@@ -19,7 +19,7 @@ const Spells = ({spells, findSpell, memorizeSpell, unmemorizeSpell, countSpell})
     return false;
   }).map(spell => {
     return (
-      <Link className="card-container" style={{ color: 'inherit', textDecoration: 'inherit'}} to={`${spell.index}`} key={spell.index}>
+      <Link className="card-container" style={{ color: 'inherit', textDecoration: 'inherit'}} to={`${spell.name}`} key={spell.name}>
         <article className="card">
             <Card name={spell.name}/>
             <p className="count">[{countSpell(spell.name)}]</p>
